@@ -1,1 +1,1 @@
-<img src="https://appositum.me/assets/miau.jpg"/>
+<img src="./miau.jpg"/>
