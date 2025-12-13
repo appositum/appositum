@@ -1,0 +1,29 @@
+{
+  "name": "appositum",
+  "version": "0.1.0",
+  "description": "xD",
+  "main": "appositum.js",
+  "scripts": {
+    "postversion": "npm publish"
+  },
+  "bin": {
+    "appositum": "./appositum.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appositum/appositum.git"
+  },
+  "keywords": [
+    "appositum"
+  ],
+  "author": "appositum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appositum/appositum/issues"
+  },
+  "homepage": "https://github.com/appositum/appositum#readme",
+  "dependencies": {
+    "chalk": "^4",
+    "lolcatjs": "^2.4.3"
+  }
+}
