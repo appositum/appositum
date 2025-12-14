@@ -1,4 +1,4 @@
-`npx appositum`
+`npx -y appositum`
 <br>
 <br>
 <a href="https://appositum.github.io"/>
