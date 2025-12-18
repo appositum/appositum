@@ -3,24 +3,9 @@
 'use strict'
 
 const chalk = require("chalk")
-const lolcat = require("lolcatjs")
-
-lolcat.options.spread = 2
-lolcat.options.seed = Math.round(Math.random() * 1000)
 
 const { readFile } = require("fs")
 const { join } = require("path")
-
-const bee =
-  "          .\n\
-       . '\n\
-   . '\n\
-  .\n\
- .\n\
- .         .' '.            __\n\
-  .        .   .           (__\\\n\
-   .         .         . -{{_(|8)\n\
-     ' .  . ' ' .  . '     (__/\n"
 
 readFile(join(__dirname, "key.asc"), "utf8", (err, key) => {
   if (!err)
@@ -54,7 +39,8 @@ readFile(join(__dirname, "info.json"), "utf8", (err, content) => {
     infos.push(`${chalk.bgMagenta.black(key)} ${chalk.magenta.bold(v)}`)
   }
 
-  const bee2 =
+  // FIX: dont access the array directly like that
+  const bee =
     `          .\n\
        . '\n\
    . '        ${infos[0]}\n\
@@ -66,5 +52,5 @@ readFile(join(__dirname, "info.json"), "utf8", (err, content) => {
      ' .  . ' ' .  . '     (__/\n`
 
 
-  console.log(chalk.yellow(bee2))
+  console.log(chalk.yellow(bee))
 })
