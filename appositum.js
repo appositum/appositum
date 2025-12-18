@@ -10,12 +10,25 @@ lolcat.options.seed = Math.round(Math.random() * 1000)
 
 const { readFile } = require("fs")
 const { join } = require("path")
-const bee = "          .                      \n       . '                       \n   . '                           \n  .                              \n .                               \n .         .' '.            __   \n  .        .   .           (__\\ \n   .         .         . -{{_(|8)\n     ' .  . ' ' .  . '     (__/  \n"
+
+const bee =
+  "          .\n\
+       . '\n\
+   . '\n\
+  .\n\
+ .\n\
+ .         .' '.            __\n\
+  .        .   .           (__\\\n\
+   .         .         . -{{_(|8)\n\
+     ' .  . ' ' .  . '     (__/\n"
+
+readFile(join(__dirname, "key.asc"), "utf8", (err, key) => {
+  if (!err)
+    process.stdout.write(chalk.cyan.bold(key))
+})
 
 readFile(join(__dirname, "info.json"), "utf8", (err, content) => {
   if (err) throw err
-
-  lolcat.fromString(bee)
 
   const info = JSON.parse(content)
   let largestAttribute = null
@@ -30,12 +43,28 @@ readFile(join(__dirname, "info.json"), "utf8", (err, content) => {
     }
   }
 
+  let infos = []
+
   for (const [k, v] of Object.entries(info)) {
     let spaces = 0
     const space = ' '
 
     spaces = largestAttribute.length - k.length
     let key = ` ${space.repeat(spaces)}${k} `
-    console.log(`${chalk.bgMagenta.black(key)} ${chalk.magenta.bold(v)}`)
+    infos.push(`${chalk.bgMagenta.black(key)} ${chalk.magenta.bold(v)}`)
   }
+
+  const bee2 =
+    `          .\n\
+       . '\n\
+   . '        ${infos[0]}\n\
+  .           ${infos[1]}\n\
+ .            ${infos[2]}\n\
+ .         .' '.            __\n\
+  .        .   .           (__\\\n\
+   .         .         . -{{_(|8)\n\
+     ' .  . ' ' .  . '     (__/\n`
+
+
+  console.log(chalk.yellow(bee2))
 })
