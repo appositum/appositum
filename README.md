@@ -2,5 +2,5 @@
 <br>
 <br>
 <a href="https://appositum.github.io"/>
-  <img src="./miau.jpg"/>
+  <img src="./miau.jpg" width="50%"/>
 </a>
